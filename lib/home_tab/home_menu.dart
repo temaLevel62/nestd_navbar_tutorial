@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../home_tab/feed_detail.dart';
+import '../sliding_nav_bar/my_navigator_observer.dart';
 import '../sliding_nav_bar/nav_bar_page_config.dart';
-import '../sliding_nav_bar/navbar_notifier.dart';
 import 'home_feed.dart';
 
 class HomeMenu extends StatefulWidget {

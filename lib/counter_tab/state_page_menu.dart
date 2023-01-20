@@ -61,6 +61,7 @@ class _CounterPageMenuState extends State<CounterPageMenu>
                   onPressed: () {
                     if (Navigator.of(context, rootNavigator: false).canPop()) {
                       Navigator.of(context, rootNavigator: false).pop();
+                      //Add some comment
                     }
                   },
                   icon: const Icon(Icons.navigate_before),

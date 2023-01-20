@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'navbar_notifier.dart';
+import 'navbar_visibility_supervisor.dart';
 
 class SlidingPrefSizedWidget extends SlidingBar
     implements PreferredSizeWidget {
@@ -40,7 +40,7 @@ class _SlidingBarState extends State<SlidingBar>
     super.initState();
     _controller =
         AnimationController(vsync: this, duration: kThemeAnimationDuration);
-    final navBarNotifier = context.read<NavbarVisibilitySuperviser>();
+    final navBarNotifier = context.read<NavbarVisibilitySupervisor>();
     navBarNotifier.addListener(() => navBarNotifier.hideBottomNavBar
         ? _controller.reverse()
         : _controller.forward());

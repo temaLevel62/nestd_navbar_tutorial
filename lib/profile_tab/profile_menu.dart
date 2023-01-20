@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../sliding_nav_bar/my_navigator_observer.dart';
 import '../sliding_nav_bar/nav_bar_page_config.dart';
-import '../sliding_nav_bar/navbar_notifier.dart';
 import 'profile_edit.dart';
 import 'user_profile.dart';
 

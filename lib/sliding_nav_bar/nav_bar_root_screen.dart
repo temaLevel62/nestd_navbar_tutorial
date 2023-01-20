@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nestd_navbar_tutorial/sliding_nav_bar/sliding_app_bar.dart';
 import 'package:provider/provider.dart';
 
+import 'back_button_and_current_index_superviser.dart';
 import 'nav_bar_page_config.dart';
-import 'navbar_notifier.dart';
+import 'navbar_visibility_supervisor.dart';
+import 'sliding_app_bar.dart';
 
 class NavBarRootScreen extends StatefulWidget {
   final List<NavBarPageConfig> menuItemsList;
@@ -18,15 +19,15 @@ class NavBarRootScreen extends StatefulWidget {
 class _NavBarRootScreenState extends State<NavBarRootScreen>
     with SingleTickerProviderStateMixin {
   late final List<NavBarPageConfig> menuItems;
-  late final NavbarVisibilitySuperviser _navbarNotifier;
-  late final BackButtonNotifier _backButtonNotifier;
+  late final NavbarVisibilitySupervisor _navbarNotifier;
+  late final BackButtonAndCurrentIndexSupervisor _backButtonNotifier;
 
   @override
   void initState() {
     super.initState();
     menuItems = widget.menuItemsList;
-    _navbarNotifier = NavbarVisibilitySuperviser();
-    _backButtonNotifier = BackButtonNotifier(
+    _navbarNotifier = NavbarVisibilitySupervisor();
+    _backButtonNotifier = BackButtonAndCurrentIndexSupervisor(
         widget.menuItemsList.map((e) => e.navigatorKey).toList());
   }
 
@@ -80,15 +81,15 @@ class _NavBarRootScreenState extends State<NavBarRootScreen>
       },
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider<NavbarVisibilitySuperviser>.value(
+          ChangeNotifierProvider<NavbarVisibilitySupervisor>.value(
               value: _navbarNotifier),
-          ChangeNotifierProvider<BackButtonNotifier>.value(
+          ChangeNotifierProvider<BackButtonAndCurrentIndexSupervisor>.value(
               value: _backButtonNotifier),
         ],
         child: Material(
-          child: Consumer<BackButtonNotifier>(
+          child: Consumer<BackButtonAndCurrentIndexSupervisor>(
             builder: (context, _, __) =>
-                Consumer<NavbarVisibilitySuperviser>(builder: (context, _, __) {
+                Consumer<NavbarVisibilitySupervisor>(builder: (context, _, __) {
               return Scaffold(
                   body: SafeArea(
                     top: false,
