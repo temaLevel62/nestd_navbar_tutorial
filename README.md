@@ -1,6 +1,6 @@
 # nestd_navbar_tutorial
 
-A new Flutter project.
+Flutter nested navigation tutorial project
 
 ## Getting Started
 
